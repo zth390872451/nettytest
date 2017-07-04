@@ -1,0 +1,23 @@
+vert.x nio netty reactor zookeeper 
+
+
+推送服务器：
+
+
+
+
+服务器
+
+
+
+
+app-server:APP登录的时候服务器(umeox-app-api)
+push-client-sdk：用来给客户端集成第三方推送服务的jar包
+heart-beat-server:心跳检测服务器
+push-server：推送服务器
+
+
+用户客户端 —— app-server登录，成功设置唯一标识，如别名。
+集成sdk，向服务器发送heart-check。
+反之，服务器也可以向客户端发送心跳检测是否在线。
+push-server，筛选目标人群，根据别名从缓存如redis中查询key(别名)/value(通道)，机芯指向性推送
